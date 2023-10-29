@@ -1,0 +1,251 @@
+body,header{
+    background-color: black;
+}
+header{
+    padding: 10px;
+    word-spacing: 10px;
+    text-align: center;
+    height: 10px;
+}
+/*header style*/
+#logo{
+    width: 10%;
+}
+.color{
+    color: rgb(161, 169, 177);
+    background-color: #000000;
+}
+.color:hover{
+    background-color: #2e2d2d;
+    color: aliceblue;
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-button{
+    background-color: #000000;
+    
+}
+.dropdown-button :hover{
+    background-color: #2e2d2d;
+    text-decoration: #706e6e;
+    border: none;
+    cursor: pointer;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #474747;
+    color: #474747;
+    box-shadow: 0px 8px 16px 0px rgba(59, 59, 59, 0.2);
+    z-index: 999;
+}
+
+.dropdown-content a {
+    color: #868585;
+    background-color: #2e2d2d;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-content a:hover {
+    color: #706e6e;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+/*Pages styles*/
+/*page1*/
+.clr{
+    border-radius: 0;
+}
+div h1,h4{
+    color: #ffffff;
+    padding-top: 20px;
+    opacity: 1.1;
+}
+.cenema-detail{
+    background-color: #000000;
+    width: 600px;
+    height: 675px;
+    z-index: 1;
+    position: relative;
+    opacity: 0.999;
+    padding-left: 20px;
+}
+.cenema{
+    float: right;
+    margin-top: -670px;
+    z-index: 999;
+    opacity: 0.9;
+}
+.color-overlay {
+    position: absolute;
+    top: 40px;
+    left: 600px;
+    width: 100%;
+    height: 670px;
+    background: linear-gradient(to right, rgba(0, 0, 0, 1) 0%, rgba(255, 0, 0, 0) 20%);
+}
+
+
+/*page2*/
+.rental h1,.rental h4{
+    float: right;
+}
+.rental h4{
+    margin-right: 42.5px;
+    margin-bottom: 30px;
+    margin-top: -10px;
+}
+.rental h1{
+    margin-right: 10px;
+    margin-top: 100px;
+}
+.rental{
+    float: right;
+    background-color: #000000;
+    width:500px;
+    height: 500px;
+    z-index: 1;
+    position: relative;
+    opacity: 0.999;
+    padding-right: 20px;
+}
+.color-overlay1{
+    position: absolute;
+    top: 720px;
+    right: 520px;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to left, rgb(0, 0, 0) 0%, rgba(255, 0, 0, 0) 40%);
+}
+.rental-img{
+    float: left;
+    margin-top: 0px;
+    z-index: 999;
+    opacity: 0.9;
+    margin-left: -50px;
+}
+
+
+/*page 3*/
+.favorite{
+    background-color: #ffffff;
+    margin-top: 440px;
+    width:100%;
+    height: 620px;
+    z-index: 1;
+    position: relative;
+    opacity: 0.999;
+    padding-right: 15px;
+    padding-left: 22px;
+}
+.favorite h1,.favorite h4{
+    float: left;
+    color: #000000;
+}
+.favorite h1{
+    margin-top: -200px;
+}
+.favorite h4{
+    margin-top: -80px;
+}
+.imgarr{
+    margin-top: -225px;
+    float: right;
+    width:800px;
+    height: 1000px;
+    z-index: 999;
+    margin-right: -100px;
+}
+.imgarr img{
+    width:27%;
+    height:15%;
+    padding: 1.5px;
+    
+}
+.imgarr img:hover{
+    transform: scale(1.02);
+}
+.fav{
+    padding-left: 20px;
+    width: 600px;
+}
+
+
+/*page 4*/
+.tv{
+    margin-top: -350px;
+    margin-left: 300px;
+    float: right;
+    background-color: #000000;
+    width:600px;
+    height: 340px;
+    z-index: 1;
+    position: relative;
+    opacity: 0.999;
+    padding-right: 20px;
+}
+.remote{
+    float: left;
+    margin-top: -420px;
+    z-index: 999;
+    opacity: 0.9;
+    margin-left: -50px;
+}
+
+
+
+/*page 5*/
+.Parental{
+    padding-top: 20px;
+    margin-top: -220px;
+    margin-left: 40px;
+    float: left;
+    background-color: #000000;
+    width:600px;
+    height: 400px;
+    z-index: 1;
+    position: relative;
+    opacity: 0.999;
+    padding-right: 20px;
+}
+.kids{
+    float: right;
+    margin-top: -430px;
+    margin-right: -60px;
+    z-index: 0.999;
+    opacity: 0.9;
+    transform: scale(0.875);
+}
+.color-overlay2 {
+    position: absolute;
+    top: 2205px;
+    left: 580px;
+    width: 100%;
+    height: 400px;
+    background: linear-gradient(to right, rgb(0, 0, 0) 0%, rgba(255, 0, 0, 0) 20%);
+}
+
+/* Footer styles*/
+.foot{
+    position: relative;
+    color: #686868;
+    background-color:#2e2d2d ;
+    margin-top: 830px;
+    height: 150px;
+    
+}
+.foter{
+    margin-top: 10px;
+    position: absolute;
+    text-align: center;
+    margin-left: 540px;
+}
