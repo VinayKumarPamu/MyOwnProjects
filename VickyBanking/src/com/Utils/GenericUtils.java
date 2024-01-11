@@ -40,7 +40,7 @@ public class GenericUtils {
 			String fName = createAccount.getMobNum().substring(0, splitPosition);
 			DBUtils.connekt();
 			PreparedStatement accBal=DBUtils.connection.prepareStatement("INSERT INTO vickyuserAccounts (UserName,AccountNumber,AvalBalance) VALUES (?,?,500)");
-			accBal.setString(0, createAccount.getUserFirstName()+fName);
+			accBal.setString(1, createAccount.getUserFirstName()+fName);
 			accBal.setString(2, createAccount.getAccNum());
 			accBal.execute();
 			accBal.close();
@@ -153,12 +153,11 @@ public class GenericUtils {
 	//retrive Account Information of user
 	public static ArrayList AccOp(String AccNum){
 		ArrayList AccOperation=new ArrayList<>();
-		ResultSet AccOperations = null;
 		try {
 			DBUtils.connekt();
 			PreparedStatement stmt=DBUtils.connection.prepareStatement("select * from vickyuserAccounts where AccountNumber=?");
 			stmt.setString(1, AccNum);
-			AccOperations = stmt.executeQuery();
+			ResultSet AccOperations = stmt.executeQuery();
 			while(AccOperations.next()) {
 				AccOperation.add(AccOperations.getString(2));
 				AccOperation.add(AccOperations.getString(3));
