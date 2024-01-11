@@ -340,12 +340,23 @@ public class DefaultUserService implements UserService{
 		Transactions(accOp,"Withdraw",TransString,null,WitAmt);
 	}
 	private void TransferMoney(ArrayList accOp) throws SQLException {
-		System.out.println("Enter the Amount you want to Transfer from Account "+accOp.get(0));
+		int object = Integer.parseInt((String) accOp.get(0));
+		System.out.println("Enter the Amount you want to Transfer from Account "+object);
 		int TransAmt = scanner.nextInt();
-		System.out.println("Enter the Receiver Account Number");
-		int receiverAccNum=scanner.nextInt();
+		boolean checkAccNum=true;
+		int receiverAccNum = 0;
+		while(checkAccNum) {
+			System.out.println("Enter the Receiver Account Number");
+			receiverAccNum=scanner.nextInt();
+			if(object==(receiverAccNum)){
+				System.out.println("Reciever Account Number should be different from your's Account Number\nPlease Try Again\n");
+			}else {
+				checkAccNum=false;
+			}
+		}
 		String TransString="Amount "+TransAmt+" is Transfered from your account to "+receiverAccNum;
 		Transactions(accOp,"Transfer",TransString,""+receiverAccNum,TransAmt);
+		checkAccNum=false;
 	}
 	protected void Transactions(ArrayList accOp,String type,String TransString,String receiverAccNum,int Amt) {
 		//for vickyuserAccounts DB Operations
