@@ -375,20 +375,16 @@ public class DefaultUserService implements UserService{
 		GenericUtils.Transactions(transaction);
 	}
 	private void TransactionHistory(ArrayList accOp) throws SQLException {
-		//		TransactionDTO transaction=new TransactionDTO();
-		ResultSet transactionHistory = GenericUtils.TransactionHistory((String) accOp.get(0));
 		System.out.println("TransactionDate\t\tType\tTransactionAmount\tStatus\t\tRefNum\tAccountBalance\tReceiverAccNum\tSenderAccNum");
-		while(transactionHistory.next()) {
-			System.out.println(transactionHistory.getString(1)+"\t"+transactionHistory.getString(2)+transactionHistory.getString(3)+"\t\t\t"+transactionHistory.getString(4)+"\t"+transactionHistory.getString(5)+"\t"+transactionHistory.getString(6)+"\t\t"+transactionHistory.getString(7)+"\t\t"+transactionHistory.getString(8));
-			//			transaction.setTransactionDate(transactionHistory.getString(1));
-			//			transaction.setType(transactionHistory.getString(2));
-			//			transaction.setTransactionAmount(transactionHistory.getInt(3));
-			//			transaction.setStatus(transactionHistory.getString(4));
-			//			transaction.setRefNum(Double.parseDouble(transactionHistory.getString(5)));
-			//			transaction.setBalanceAfterTransaction(transactionHistory.getString(6));
-			//			transaction.setReceiverAccNum(transactionHistory.getString(7));
-			//			transaction.setSenderAccNum(transactionHistory.getString(8));
-			//			System.out.println(transaction.toString());
+		List<Map<String,Object>> transactionHistory = GenericUtils.TransactionHistory((String) accOp.get(0));
+		if(!transactionHistory.isEmpty()) {
+			System.out.println("hello");
+		}
+		for(int num=0;num<transactionHistory.size();num++){
+			System.out.println(transactionHistory.get(num).get("TransactionDate")+"\t"+transactionHistory.get(num).get("Type")
+					+transactionHistory.get(num).get("Amount")+"\t\t\t"+transactionHistory.get(num).get("Status")+"\t"
+					+transactionHistory.get(num).get("RefNum")+"\t"+transactionHistory.get(num).get("BalanceAfterTransaction")+
+					"\t\t"+transactionHistory.get(num).get("ReceiverAccNum")+"\t\t"+transactionHistory.get(num).get("SenderAccNum"));
 		}
 	}
 	// Cleaning of failed count
