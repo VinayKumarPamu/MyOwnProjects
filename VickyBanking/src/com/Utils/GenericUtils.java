@@ -211,19 +211,41 @@ public class GenericUtils {
 		}
 	}
 	//retriving Transaction history
-	public static ResultSet TransactionHistory(String AccNum){
-		ResultSet History = null;
+	public static List<Map<String, Object>> TransactionHistory(String AccNum){
 		try {
 			DBUtils.connekt();
 			PreparedStatement stmt=DBUtils.connection.prepareStatement("select * from VickyuserAccBanking where SenderAccNum=?");
 			stmt.setString(1, AccNum);
-			History = stmt.executeQuery();
-			stmt.close();
-			DBUtils.connection.close();
+			ResultSet History = stmt.executeQuery();
+			List<Map<String, Object>> resultList = new ArrayList<>();
+			try {
+				while (History.next()) {
+					// Process each row and store data in a map
+					Map<String, Object> rowMap = new HashMap<>();
+					ResultSetMetaData metaData = (ResultSetMetaData) History.getMetaData();
+					int columnCount = metaData.getColumnCount();
+
+					for (int i = 1; i <= columnCount; i++) {
+						String columnName = metaData.getColumnName(i);
+						Object columnValue = History.getObject(i);
+						rowMap.put(columnName, columnValue);
+					}
+
+					// Add the map representing the row to the list
+					resultList.add(rowMap);
+				}
+			} catch (SQLException e) {
+				e.printStackTrace(); // Handle or log the exception as needed
+			} finally {
+				stmt.close();
+				DBUtils.connection.close();
+				// Close resources if necessary
+			}
+			return resultList;
 		} catch (SQLException e) {
 			System.out.println("No transactions are made by You");
+			return null;
 		}
-		return History;
 	}
 	// for forgot password
 	public static ArrayList forgot(String fname,String halfMobNum,String email){
