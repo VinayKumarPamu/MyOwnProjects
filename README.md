@@ -1,4 +1,4 @@
-# User-Service (Spring Boot Microservice)
+# User-Service (Spring Boot)
 
 ## 1. Project Title
 UserManagement
